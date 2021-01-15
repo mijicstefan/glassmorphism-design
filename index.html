@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphism - Stefan</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <img src="./abstract.jpg" alt="abstract" />
+
+    <div class="container" id="glass">
+      <h2 class="seq">This is an awesome glassy card</h2>
+      <p class="seq">Stefan Mijic</p>
+    </div>
+
+    <h1>Glassmorphism Realized</h1>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
+      integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const glass = document.getElementById("glass");
+      const t1 = gsap.timeline({
+        defaults: { ease: "power2.inOut", duration: 1.5 },
+      });
+      t1.from("img", { x: "-10%", opacity: 0 })
+        .from(".container", {opacity: 0, delay: .5, duration: 1}, "-=1.5")
+        .from('.container', {x: '-20%', backdropFilter: 'blur(0px)'})
+        .from('.seq', {y: -30, opacity: 0, stagger: .2, duration: .5}, '-=.5')
+        .from('h1', {y: 20, clipPath: 'inset(0 0 100% 0)'}, "-=.8");  
+    </script>
+  </body>
+</html>
